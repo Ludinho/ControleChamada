@@ -1,0 +1,15 @@
+html{
+	height:100%;
+}
+
+body{
+	background-image: url(../imagens/goku-lindo.jpg);
+	background-size: cover;
+}
+
+h1{
+	color:white;
+	text-align:center;
+	font-family:times new roman;
+	font-size:100px;
+}

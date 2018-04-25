@@ -1,0 +1,52 @@
+html{
+	height:100%;
+}
+
+body{
+	background-image:url(../imagens/lua.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+h1{
+	color:white;
+	text-align:center;
+	font-family:times new roman;
+	font-size:100px;
+}
+
+label{
+	color:white;
+	font-family:times new roman;
+}
+
+.btn-cadastro{
+	background-color:rgba(76,136,183,.3);
+}
+
+.btn-cadastro:hover{
+	background-color:rgba(76,136,183,.7);
+	box-shadow: 0 0 20px 5px;
+}
+
+.btn-enviar{
+	background-color:rgba(56,90,135,.9);
+	box-shadow: 0 0 20px 5px rgb(109,174,206);
+}
+.btn-enviar:hover{
+	background-color:white;
+}
+
+.form-centralizado{
+	background-color:rgba(49,90,142,.7);
+	width:300px;
+	padding:15px;
+	margin:50px auto 0 auto;
+	border-radius:25px;
+	box-shadow: 0 0 20px 5px rgb(109,174,206);
+}
+.msg-login{
+	color: red;
+	text-align: center;
+	font-weight: bold;
+}
