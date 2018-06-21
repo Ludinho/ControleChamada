@@ -16,12 +16,12 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Login do aluno<h1>
+			<h1>Login do Administrador<h1>
 		</div>
 		<div class="form-centralizado">
 			<form method="POST">
 				<div class="form-group">
-					<label for="login">Login do aluno:</label>
+					<label for="login">Login:</label>
 					<input type="text" name="login" id="login" placeholder="Digite o seu Email" class="form-control"/>
 				</div>
 				<div class="form-group">
