@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	if (isset($_POST['btn-cadastar-aluno'])) {
 		include_once("controller/IndexController.class.php");
@@ -6,6 +7,8 @@
 	}
 ?>
 
+=======
+>>>>>>> 9df61cc266727e04a8464288c6f764f4d8a37e27
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -54,6 +57,7 @@
 	                </li>
 	                <li>
 	                    <!-- Button trigger modal -->
+
 						<a type="" class="" data-toggle="modal" data-target="#modalCadastroAluno">
 						Cadastrar Aluno
 						</a>
@@ -61,6 +65,7 @@
 	                <li>
 	                    <!-- Button trigger modal -->
 						<a type="" class="" data-toggle="modal" data-target="#modalCadastroProfessor">
+
 						Cadastrar Professor
 						</a>
 	                </li>
