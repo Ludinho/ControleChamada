@@ -5,6 +5,7 @@
 		$post = "senha";
 		$mensagem = $controle->logar($_POST);
 	}
+	
 ?>
 <!DOCTYPE html>
 <html>

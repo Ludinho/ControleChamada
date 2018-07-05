@@ -40,5 +40,10 @@
 			header("Refresh: 20; url = menu.php");
 
 	    }
+
+	    public function buscarAlunos(){
+	    	$dao = new DaoAluno();
+	    	return $dao->buscarTodosOsAlunos();
+	    }
 	}
 ?>

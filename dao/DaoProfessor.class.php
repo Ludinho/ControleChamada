@@ -22,6 +22,19 @@
 			return $Professor;
 			
 		}
+		public function buscarTodosOsAlunos(){
+			$sql = "SELECT * FROM tb_professor";
+			$resultado = Conexao::meDeAConexao()->query($sql);
+			$listaFormatoBanco = $resultado->fetchAll(PDO::FETCH_ASSOC);
+			$listaDeObjetosProfessores = array();
+
+			foreach ($listaFormatoBanco as $itemLista)
+				$listaDeObjetosProfessores[] = $this->TransformaAlunoDoBancoEmObjeto($itemLista);
+
+			
+			return $listaDeObjetosProfessores;
+			
+		}
 
 	 	public function TransformaProfessorDoBancoEmObjeto($dadosDoBanco){
 	 		$aluno = new Professor();

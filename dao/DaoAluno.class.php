@@ -23,6 +23,20 @@
 			
 		}
 
+		public function buscarTodosOsAlunos(){
+			$sql = "SELECT * FROM tb_aluno";
+			$resultado = Conexao::meDeAConexao()->query($sql);
+			$listaFormatoBanco = $resultado->fetchAll(PDO::FETCH_ASSOC);
+			$listaDeObjetosAlunos = array();
+
+			foreach ($listaFormatoBanco as $itemLista)
+				$listaDeObjetosAlunos[] = $this->TransformaAlunoDoBancoEmObjeto($itemLista);
+
+			
+			return $listaDeObjetosAlunos;
+			
+		}
+
 	 	public function TransformaAlunoDoBancoEmObjeto($dadosDoBanco){
 	 		$aluno = new Aluno();
 	 		$aluno->setMatricula($dadosDoBanco['matricula_aluno']);

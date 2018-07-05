@@ -1,14 +1,24 @@
 <?php
-	if (isset($_POST['btn-cadastar-aluno'])) {
-		include_once("controller/IndexController.class.php");
-		$controle = new IndexController();
-		$mensagem = $controle->salvarAluno($_POST);
+	include_once("controller/IndexController.class.php");
+	include_once("controller/LoginController.class.php");
+	
+	$controle = new IndexController();
+	
+	LoginController::verificaSeUsuarioJaFezLogin();
+
+	if (isset($_POST['operacao'])) {
+		$operacao = $_POST['operacao'];
+
+		switch ($operacao) { // Caso
+			case 'salvarAluno':
+				$mensagem = $controle->salvarAluno($_POST);
+			break;
+			case 'salvarProfessor':
+				$mensagem = $controle->salvarProfessor($_POST);
+			break;
+		}
 	}
-	if (isset($_POST['btn-cadastar-prof'])) {
-		include_once("controller/IndexController.class.php");
-		$controle = new IndexController();
-		$mensagem = $controle->salvarProfessor($_POST);
-	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +69,7 @@
 				      </div>
 				    </li>
 	                <li>
-	                    <a href="#">Sair</a>
+	                    <a href="sair.php">Sair</a>
 	                </li>
 	            </ul>
 	        </div>
@@ -69,6 +79,22 @@
 	        <div id="page-content-wrapper">
 	            <div class="container-fluid">
 	                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+	                Bem vindo <?=$_SESSION['usuario']?>
+	                <?php
+	                	$listaDeAlunos = $controle->buscarAlunos();
+	                	
+	                	foreach ($listaDeAlunos as $aluno){
+	                		
+	                ?>
+	                	<h3><?=$aluno->getNome()?></h3>
+
+
+	              	<?php
+
+
+
+	                	}
+	                ?>
 	            </div>
 	        </div>
 	        <!-- /#page-content-wrapper -->
@@ -101,7 +127,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-								<button type="submit" class="btn btn-primary" name="btn-cadastar-aluno">Salvar Dados</button>
+								<button type="submit" class="btn btn-primary" name="operacao" value="salvarAluno">Salvar Dados</button>
 							</div>
 						</div>
 					</form>
@@ -128,7 +154,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-								<button type="submit" class="btn btn-primary" name="btn-cadastar-prof">Salvar Dados</button>
+								<button type="submit" class="btn btn-primary" name="operacao" value="salvarProfessor">Salvar Dados</button>
 							</div>
 						</div>
 					</form>
@@ -143,10 +169,10 @@
 		<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
 		<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+		    $("#menu-toggle").click(function(e) {
+		        e.preventDefault();
+		        $("#wrapper").toggleClass("toggled");
+		    });
+		</script>
 	</body>
 </html>
