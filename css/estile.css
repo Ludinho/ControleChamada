@@ -19,6 +19,14 @@ footer {
     left:5;
 }
 
+a{
+  color: #ffffff !important;
+}
+
+.sf{
+  color: white;
+}
+
 .dropdown:hover > .dropdown-menu {
     display: block;
 }
@@ -137,6 +145,10 @@ button{
   color: #fff;
   background: none;
 }
+
+.dropdown-menu {
+  background-color: #212529 !important;
+} 
 
 @media(min-width:768px) {
   #wrapper {

@@ -1,14 +1,16 @@
-<<<<<<< HEAD
 <?php
 	if (isset($_POST['btn-cadastar-aluno'])) {
 		include_once("controller/IndexController.class.php");
 		$controle = new IndexController();
 		$mensagem = $controle->salvarAluno($_POST);
 	}
+	if (isset($_POST['btn-cadastar-prof'])) {
+		include_once("controller/IndexController.class.php");
+		$controle = new IndexController();
+		$mensagem = $controle->salvarProfessor($_POST);
+	}
 ?>
 
-=======
->>>>>>> 9df61cc266727e04a8464288c6f764f4d8a37e27
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -21,39 +23,14 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<!-- Modal -->
-			<div class="modal fade" id="modalCadastroAluno" tabindex="-1" role="dialog" aria-labelledby="modalCadastroAlunoTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<form method="POST">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLongTitle">Cadastro de aluno</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								  <span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<label for="cnome">Nome:</label>
-							<input type="text" name="cnome" id="cnome" placeholder="Digite o seu nome" class="form-control"/>
-								<label for="cmatricula">Matrícula:</label>
-							<input type="text" name="cmatricula" id="cmatricula" placeholder="Digite a sua matrícula (código do aluno)" class="form-control"/>
-
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-								<button type="submit" class="btn btn-primary" name="btn-cadastar-aluno">Salvar Dados</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
+			
 			<div id="wrapper">
 
 	        <!-- Sidebar -->
 	        <div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
 	                <li>
-	                    <a href="#">Professores</a>
+	                    <a href="prof.php">Professores</a>
 	                </li>
 	                <li>
 	                    <!-- Button trigger modal -->
@@ -104,8 +81,34 @@
 			</footer>	
 			<!-- END: footer -->
 		</div>
+		<!-- Primeira Modal -->
+			<div class="modal fade" id="modalCadastroAluno" tabindex="-1" role="dialog" aria-labelledby="modalCadastroAlunoTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<form method="POST">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Cadastro de aluno</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<label for="cnome">Nome:</label>
+							<input type="text" name="cnome" id="cnome" placeholder="Digite o seu nome" class="form-control"/>
+								<label for="cmatricula">Matrícula:</label>
+							<input type="text" name="cmatricula" id="cmatricula" placeholder="Digite a sua matrícula (código do aluno)" class="form-control"/>
 
-		<!-- Modal -->
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+								<button type="submit" class="btn btn-primary" name="btn-cadastar-aluno">Salvar Dados</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		<!-- Segunda Modal -->
 			<div class="modal fade" id="modalCadastroProfessor" tabindex="-1" role="dialog" aria-labelledby="modalCadastroProfessorTitle" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<form method="POST">
@@ -119,13 +122,13 @@
 							<div class="modal-body">
 								<label for="cnomep">Nome:</label>
 							<input type="text" name="cnomep" id="cnomep" placeholder="Digite o seu nome" class="form-control"/>
-								<label for="cmateria">Materia:</label>
-							<input type="text" name="cmateria" id="cmateria" placeholder="Digite a sua matrícula (código do aluno)" class="form-control"/>
+								<label for="cdisciplina">disciplina:</label>
+							<input type="text" name="cdisciplina" id="cdisciplina" placeholder="Digite a sua disciplina" class="form-control"/>
 
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-								<button type="submit" class="btn btn-primary" name="btn-cadastar-aluno">Salvar Dados</button>
+								<button type="submit" class="btn btn-primary" name="btn-cadastar-prof">Salvar Dados</button>
 							</div>
 						</div>
 					</form>
