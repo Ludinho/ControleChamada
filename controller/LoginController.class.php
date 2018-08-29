@@ -14,17 +14,13 @@
               $_SESSION['usuario']= $usuario->getNome();
               $_SESSION['logado'] = true;
               
-              header("location:index.php");
+              header("location:index2.php");
 
             } else{
                 return "Senha Incorreta";
             }
         }
-
-	     	// verificar a senha
-	    	//var_dump($usuario);
-
-    	}
+      }
 
       public function salvarUsuario($post){
         if($post['nome']==""){
@@ -51,6 +47,7 @@
         session_start();
         if(!$_SESSION['logado']==true)
           header("location:login.php?msg='Malandro, você não pode entrar sem fazer login");
-        }
-  }
+      }
+      }
+
 ?>

@@ -2,7 +2,7 @@
 	<html>
 		<head>
 			<meta charset="utf-8">
-			<link rel="stylesheet" href="css/style.css">
+			<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 			<title>Visualizar Professores</title>
 		</head>
 		<body>

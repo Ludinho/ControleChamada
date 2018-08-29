@@ -4,10 +4,11 @@
 	class DaoAluno{
 	 	
 	 	public function salvarAlunoDaModal($dadosDaModal){
-			$sql = "INSERT INTO tb_aluno (matricula_aluno, nome_aluno) VALUES (:matricula, :nome)";
+			$sql = "INSERT INTO tb_aluno (matricula_aluno, nome_aluno, turma) VALUES (:matricula, :nome, :turma)";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":nome",$dadosDaModal['cnome']);
 			$sqlPreparado->bindValue(":matricula",$dadosDaModal['cmatricula']);
+			$sqlPreparado->bindValue(":turma",$dadosDaModal['cturma']);
 			$resposta = $sqlPreparado->execute();
 			return $sqlPreparado->rowCount();
 			
@@ -41,6 +42,7 @@
 	 		$aluno = new Aluno();
 	 		$aluno->setMatricula($dadosDoBanco['matricula_aluno']);
 	 		$aluno->setNome($dadosDoBanco['nome_aluno']);
+	 		$aluno->setTurma($dadosDoBanco['turma']);
 	 		return $aluno;
 	 	}
 	 }
