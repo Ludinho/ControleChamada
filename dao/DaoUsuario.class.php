@@ -30,6 +30,8 @@
 	 		$usuario->setsenha($dadosDoBanco['senha']);
 	 		return $usuario;
 	 	}
+
+	 	
 	 }
 
 

@@ -26,6 +26,11 @@
         }
       }
 
+       public function buscarRegistros(){
+        $dao = new DaoSaida();
+        return $dao->buscarTodosOsAlunos();
+      }
+
   }
 
 ?>

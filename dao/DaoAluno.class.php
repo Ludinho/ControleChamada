@@ -38,6 +38,23 @@
 			
 		}
 
+		public function excluir($matricula){
+			$sql = "DELETE  FROM tb_entrada WHERE matricula_aluno=:matricula_aluno";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":matricula_aluno",$matricula);
+			$resposta = $sqlPreparado->execute();
+
+			$sql = "DELETE  FROM tb_saida WHERE matricula_aluno=:matricula_aluno";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":matricula_aluno",$matricula);
+			$resposta = $sqlPreparado->execute();
+
+			$sql = "DELETE  FROM tb_aluno WHERE matricula_aluno=:matricula_aluno";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":matricula_aluno",$matricula);
+			$resposta = $sqlPreparado->execute();
+			
+		}
 	 	public function TransformaAlunoDoBancoEmObjeto($dadosDoBanco){
 	 		$aluno = new Aluno();
 	 		$aluno->setMatricula($dadosDoBanco['matricula_aluno']);

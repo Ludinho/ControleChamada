@@ -14,5 +14,28 @@
 			return $sqlPreparado->rowCount();
 			
 		}
+
+		public function buscarTodosOsAlunos(){
+			$sql = "SELECT * FROM tb_saida";
+			$resultado = Conexao::meDeAConexao()->query($sql);
+			$listaFormatoBanco = $resultado->fetchAll(PDO::FETCH_ASSOC);
+			$listaDeObjetosAlunos = array();
+
+			foreach ($listaFormatoBanco as $itemLista)
+				$listaDeObjetosAlunos[] = $this->TransformaAlunoDoBancoEmObjeto($itemLista);
+
+			
+			return $listaDeObjetosAlunos;
+			
+		}
+
+	 	public function TransformaAlunoDoBancoEmObjeto($dadosDoBanco){
+	 		$registro = new Aluno();
+	 		$registro->setMatriculaAlunos($dadosDoBanco['matricula_aluno']);
+	 		$registro->setMotivo($dadosDoBanco['motivo']);
+	 		$registro->setData($dadosDoBanco['data']);
+	 		$registro->setHora($dadosDoBanco['hora']);
+	 		return $registro;
+	 	}
 	 }
 ?>

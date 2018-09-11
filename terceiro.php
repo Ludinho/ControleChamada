@@ -1,3 +1,7 @@
+<?php
+	include_once("controller/IndexController.class.php");
+	include_once("controller/LoginController.class.php");
+?>
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -9,26 +13,26 @@
 		<body>
 			<h2>Registros de alunos</h2>
 
-			<style>
-				.table-dark td, .table-dark th, .table-dark thead th{
-					border-color: #212529;
-				}
-				body{
-					background-color: #212529;
-				}
-				h2, p{
-					color: white;
-				}
-			</style>
-			<div class="container">
-			  <h2>3ªEMII-A</h2>           
-			  <table class="table table-hover table-dark">
-			    <tbody>
-			      <tr>
-			        <td>João Augusto Flores</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
+			 <?php
+	                	$listaDeAlunos = $controle->buscarResgistros();
+	                	
+	                	foreach ($listaDeAlunos as $aluno){
+	                		
+	                ?>
+
+	                	
+	                	<h4><?=$aluno->getMatricula()?></h4>
+	                	<h4><?=$aluno->getMotivo()?></h4>
+	                	<h4><?=$aluno->getData()?></h4>
+	                	<h4><?=$aluno->getHora()?></h4>
+
+
+	              	<?php
+
+
+
+	                	}
+	                ?>
+			
 		</body>
 	</html>
