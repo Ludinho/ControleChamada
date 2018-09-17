@@ -38,58 +38,57 @@
 	<body>
 		<div class="container-fluid">
 			<div id="wrapper">
-			<?php
-				include_once("includes/menu-lateral.php");
-			?>
-	        
+				<?php
+					include_once("includes/menu-lateral.php");
+				?>
+		        
 
 
-	        <!-- Page Content -->
-	        <div id="page-content-wrapper">
-	            <div class="container-fluid">
-	                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"></a>
-	                Bem vindo <?=$_SESSION['usuario']?>
+		        <!-- Page Content -->
+		        <div id="page-content-wrapper">
+		            <div class="container-fluid">
+		                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"></a>
+		                Bem vindo <?=$_SESSION['usuario']?>
 
-	                <!-- Button trigger modal -->
-			<a type="" class="btn btn-dark float-right" data-toggle="modal" data-target="#modalCadastroProfessor">
+		                <!-- Button trigger modal -->
+						<a type="" class="btn btn-dark float-right" data-toggle="modal" data-target="#modalCadastroProfessor">
 
-			Cadastrar Professor
-			</a>
-	                <table class="table table-hover table-dark">
-					  <thead>
-					    <tr>
-					      <th scope="col">#</th>
-					      <th scope="col">Nome</th>
-					      <th scope="col">Matricula</th>
-					      <th scope="col">Turma</th>
-					      <th scope="col">Opções</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-		                <?php
-		                	$listaDeProfessores = $controle->buscarProfessores();
+						Cadastrar Professor
+						</a>
+		                <table class="table table-hover table-dark">
+						  <thead>
+						    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">Nome</th>
+						      <th scope="col">Matricula</th>
+						      <th scope="col">Turma</th>
+						      <th scope="col">Opções</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+			                <?php
+			                	$listaDeProfessores = $controle->buscarProfessores();
 
-		                	foreach ($listaDeProfessores as $professor){
-		                ?>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td><?=$professor->getNome()?></td>
-							      <td><?=$professor->getDisciplina()?></td>
-							      <td><?=$professor->getCodigo()?></td>
-							      <td>
-							      	<a href="gerencia-professor.php?op=excluir&mat=<?=$professor->getCodigo()?>">Excluir</a>
-							      	</td>
+			                	foreach ($listaDeProfessores as $professor){
+			                ?>
+								    <tr>
+								      <th scope="row">1</th>
+								      <td><?=$professor->getNome()?></td>
+								      <td><?=$professor->getDisciplina()?></td>
+								      <td><?=$professor->getCodigo()?></td>
+								      <td>
+								      	<a href="gerencia-professor.php?op=excluir&mat=<?=$professor->getCodigo()?>">Excluir</a>
+								      	</td>
 
-							    </tr>
-		              	<?php
-		                	}
-		                ?>
-	                  </tbody>
-					</table>
-	            </div>
-	        </div>
-	        <!-- /#page-content-wrapper -->
-
+								    </tr>
+			              	<?php
+			                	}
+			                ?>
+		                  </tbody>
+						</table>
+		            </div>
+		        </div>
+		        <!-- /#page-content-wrapper -->
 	   		</div>
 			<footer class="footer navbar-bottom">
 				Escola Estadual Waldemir Barros da Silva <br />
@@ -102,7 +101,7 @@
 
 		<!-- Segunda Modal -->
 		<div class="modal fade" id="modalCadastroProfessor" tabindex="-1" role="dialog" aria-labelledby="modalCadastroProfessorTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-dialog" role="document">
 				<form method="POST">
 					<div class="modal-content">
 						<div class="modal-header">

@@ -38,6 +38,8 @@
 			
 		}
 
+		
+
 		public function excluir($matricula){
 			$sql = "DELETE  FROM tb_entrada WHERE matricula_aluno=:matricula_aluno";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
