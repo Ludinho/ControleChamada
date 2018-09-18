@@ -1,6 +1,13 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
+    	<li>
+            <!-- Button trigger modal -->
+
+			<a href="index2.php">
+			Inicio
+			</a>
+        </li>
         <li>
             <!-- Button trigger modal -->
 
@@ -13,6 +20,11 @@
 			<a href="gerencia-professor.php">
 
 			Gerenciar Professores
+			</a>
+        </li>
+        <li>
+        	<a href="gerencia-presenca.php">
+			Gerenciar faltas
 			</a>
         </li>
         <li class="nav-item dropdown">

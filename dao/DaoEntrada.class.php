@@ -37,11 +37,23 @@
 		}
 
 		public function buscarTodosOsAlunosPresentesFiltro($filtrosDePesquisa){
-			var_dump($filtrosDePesquisa);
-			$sql = "SELECT * FROM tb_entrada te INNER JOIN tb_aluno ta ON(te.matricula_aluno=ta.matricula_aluno) WHERE te.data = :data and ta.turma=:turma and te.matricula_aluno = :matricula";
+
+			$sql = "SELECT * FROM tb_entrada te INNER JOIN tb_aluno ta ON(te.matricula_aluno=ta.matricula_aluno) WHERE ta.turma=:turma";
+
+			if($filtrosDePesquisa['data'] != "")
+				$sql = $sql . " and te.data = :data";
+
+			if($filtrosDePesquisa['matricula'] != "")
+				$sql = $sql . " and te.matricula_aluno = :matricula";
+
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":data",$filtrosDePesquisa['data']);
-			$sqlPreparado->bindValue(":matricula",$filtrosDePesquisa['matricula']);
+			
+			if($filtrosDePesquisa['data'] != "")
+				$sqlPreparado->bindValue(":data",$filtrosDePesquisa['data']);
+
+			if($filtrosDePesquisa['matricula'] != "")
+				$sqlPreparado->bindValue(":matricula",$filtrosDePesquisa['matricula']);
+			
 			$sqlPreparado->bindValue(":turma",$filtrosDePesquisa['turma']);
 			$resposta = $sqlPreparado->execute();
 			$listaFormatoBanco = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);

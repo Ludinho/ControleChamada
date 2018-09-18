@@ -7,7 +7,6 @@
 	LoginController::verificaSeUsuarioJaFezLogin();
 	
 	if (isset($_GET['pesquisa'])){
-		echo "aqui";
 		$listaDeAlunos = $controle -> buscarTodosOsAlunosPresentesFiltro($_GET);
 	}else{
 		$listaDeAlunos =  $controle -> buscarTodosOsAlunosPresentes();
@@ -43,7 +42,9 @@
 					<form method="GET">
 						<input type="text" name="matricula">
 						<select name="turma">
-							<option value="3TIA">3EMI</option>
+							<option value="3TIA">3EMIA</option>
+							<option value="2TIA">2EMIA</option>
+							<option value="2TIB">2EMIB</option>
 						</select>
 						<input type="date" name="data">
 						<button type="submit" name="pesquisa">Pesquisa</button>

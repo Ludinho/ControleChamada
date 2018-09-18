@@ -60,8 +60,8 @@
 						    <tr>
 						      <th scope="col">#</th>
 						      <th scope="col">Nome</th>
-						      <th scope="col">Matricula</th>
-						      <th scope="col">Turma</th>
+						      <th scope="col">Materia</th>
+						      <th scope="col">Código</th>
 						      <th scope="col">Opções</th>
 						    </tr>
 						  </thead>
