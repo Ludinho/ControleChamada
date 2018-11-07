@@ -8,6 +8,7 @@
      	  //Criar um objeto registro
          //Criar um objeto presenca
         $saida = new Saida();
+         $saida->setNome($post['nome']);
         $saida->setMatriculaAluno($post['matricula']);
         $saida->setData(date("Y-m-d"));
         $saida->setHora(date("H:i:s"));

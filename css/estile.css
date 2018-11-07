@@ -12,6 +12,14 @@ h4{
 	color: white;
 }
 
+table{
+  margin-top: 50px;
+}
+
+.sf{
+  margin-left:235px;
+}
+
 footer {
     color: white;
     position: fixed;
@@ -21,6 +29,10 @@ footer {
 
 a{
   color: #ffffff !important;
+}
+
+.page-link {
+  color: black !important;
 }
 
 .sf{

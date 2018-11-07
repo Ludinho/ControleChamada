@@ -21,6 +21,7 @@
 		
 		<!--  Nucleo do jquery -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="datatables/datatables.min.css" /> 
 		<link rel="stylesheet" href="css/estile.css"/>
 	</head>
 	<body>
@@ -39,19 +40,7 @@
 	                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"></a>
 	                Bem vindo <?=$_SESSION['usuario']?>
 					
-					<form method="GET">
-						<input type="text" name="matricula">
-						<select name="turma">
-							<option value="3TIA">3EMIA</option>
-							<option value="2TIA">2EMIA</option>
-							<option value="2TIB">2EMIB</option>
-						</select>
-						<input type="date" name="data">
-						<button type="submit" name="pesquisa">Pesquisa</button>
-
-					</form>
-	                
-	                <table class="table table-hover table-dark">
+	                <table class="table table-hover table-dark" id="tabela_registro">
 					  <thead>
 					    <tr>
 					      <th scope="col">#</th>
@@ -97,7 +86,8 @@
 		<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script> 
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
+		<script type="text/javascript" src="datatables/datatables.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 		<script>
 		    $("#menu-toggle").click(function(e) {
 		        e.preventDefault();

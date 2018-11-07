@@ -1,16 +1,24 @@
 <?php
 	class Saida{
+		private $nome;
 		private $id_saida;
 		private $data;
 		private $hora;
 		private $matricula_aluno;
 		private $motivo;
 
-		public function getIdPresenca(){
-			return $this->idPresenca;
+		public function getNome(){
+			return $this->nome;
 		}
-		public function setIdPresenca($idPresenca){
-			$this->idPresenca = $idPresenca;
+		public function setNome($nome){
+			$this->nome = $nome;
+		}
+
+		public function getIdSaida(){
+			return $this->id_saida;
+		}
+		public function setIdSaida($id_saida){
+			$this->id_saida = $id_saida;
 		}
 
 		public function getData(){

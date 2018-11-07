@@ -31,6 +31,7 @@
 		
 		<!--  Nucleo do jquery -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="datatables/datatables.min.css" /> 
 		<link rel="stylesheet" href="css/estile.css"/>
 	</head>
 	<body>
@@ -50,13 +51,12 @@
 	                Bem vindo <?=$_SESSION['usuario']?>
 				<a type="" class="btn btn-success float-right" data-toggle="modal" data-target="#modalCadastroAluno">
 
-							Cadastrar Professor
+							Cadastrar Aluno
 							</a>
 
-	                <table class="table table-hover table-dark">
+	                <table class="table table-hover table-dark" id="tabela_registro">
 					  <thead>
 					    <tr>
-					      <th scope="col">#</th>
 					      <th scope="col">Nome</th>
 					      <th scope="col">Matricula</th>
 					      <th scope="col">Turma</th>
@@ -70,7 +70,7 @@
 		                	foreach ($listaDeAlunos as $aluno){
 		                ?>
 							    <tr>
-							      <th scope="row">1</th>
+							      
 							      <td><?=$aluno->getNome()?></td>
 							      <td><?=$aluno->getMatricula()?></td>
 							      <td><?=$aluno->getTurma()?></td>
@@ -133,6 +133,8 @@
 		<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script> 
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="datatables/datatables.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 
 		<script>
 		    $("#menu-toggle").click(function(e) {

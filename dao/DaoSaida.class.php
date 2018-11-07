@@ -4,8 +4,9 @@
 	class DaoSaida{
 	 	
 	 	public function geraRegistro($saida){
-			$sql = "INSERT INTO tb_saida (id_saida, data, hora, matricula_aluno, motivo) VALUES (null, :data, :hora, :matricula, :motivo)";
+			$sql = "INSERT INTO tb_saida (nome, id_saida, data, hora, matricula_aluno, motivo) VALUES (null, :data, :hora, :matricula, :motivo)";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":nome",$saida->getnome());
 			$sqlPreparado->bindValue(":data",$saida->getData());
 			$sqlPreparado->bindValue(":hora",$saida->getHora());
 			$sqlPreparado->bindValue(":matricula",$saida->getMatriculaAluno());
@@ -30,8 +31,9 @@
 		}
 
 	 	public function TransformaAlunoDoBancoEmObjeto($dadosDoBanco){
-	 		$registro = new Aluno();
-	 		$registro->setMatriculaAlunos($dadosDoBanco['matricula_aluno']);
+	 		$registro = new Saida();
+	 		$registro->setNome($dadosDoBanco['nome']);
+	 		$registro->setMatriculaAluno($dadosDoBanco['matricula_aluno']);
 	 		$registro->setMotivo($dadosDoBanco['motivo']);
 	 		$registro->setData($dadosDoBanco['data']);
 	 		$registro->setHora($dadosDoBanco['hora']);
